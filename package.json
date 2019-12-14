@@ -10,18 +10,23 @@
   },
   "precommit": "lint",
   "prettier": {
-   "singleQuote": true,
-   "printWidth": 120,
-   "tabWidth": 2,
-   "trailingComma": "none",
-   "bracketSpacing": true,
-   "semi": false,
-   "useTabs": false,
-   "jsxBracketSameLine": false
-},
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "semi": false,
+    "useTabs": false,
+    "jsxBracketSameLine": false
+  },
   "dependencies": {
+    "@aws-amplify/core": "^2.2.0",
+    "amazon-cognito-identity-js": "^3.2.0",
+    "aws-amplify": "^2.2.0",
+    "aws-amplify-react-native": "^2.2.3",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

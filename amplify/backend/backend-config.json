@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"awstrain32c4a9d4": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
