@@ -1,37 +1,50 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
-import {
-  StatusBar,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import React from 'react'
+import { StatusBar } from 'react-native'
 import Amplify from '@aws-amplify/core'
-import {Authenticator} from 'aws-amplify-react-native'
+import * as Keychain from 'react-native-keychain'
+import AppNavigator from './AppNavigator'
 import awsconfig from '../aws-exports'
+
+const MEMORY_KEY_PREFIX = '@MyStorage:'
+let dataMemory = {}
+
+class MyStorage {
+  static syncPromise = null
+
+  static setItem(key, value) {
+    Keychain.setGenericPassword(MEMORY_KEY_PREFIX + key, value)
+    dataMemory[key] = value
+    return dataMemory[key]
+  }
+
+  static getItem(key) {
+    return Object.prototype.hasOwnProperty.call(dataMemory, key) ? dataMemory[key] : undefined
+  }
+
+  static removeItem(key) {
+    Keychain.resetGenericPassword()
+    return delete dataMemory[key]
+  }
+
+  static clear() {
+    dataMemory = {}
+    return dataMemory
+  }
+}
 
 Amplify.configure({
   ...awsconfig,
   Analytics: {
-    disabled: true,
+    disabled: false
   },
+  storage: MyStorage
 })
 
+const App = () => (
+  <>
+    <StatusBar barStyle="dark-content" />
+    <AppNavigator />
+  </>
+)
 
-const App = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      {/* <Icon name="comments" size={30} color="#900" /> */}
-      <Authenticator usernameAttributes="email" />
-    </>
-  );
-};
-
-
-export default App;
+export default App
