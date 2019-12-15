@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "awstrain",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authawstrain32c4a9d4",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

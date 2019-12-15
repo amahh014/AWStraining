@@ -1,9 +1,21 @@
+// flow
 import React from 'react'
 import { StatusBar } from 'react-native'
 import Amplify from '@aws-amplify/core'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
 import * as Keychain from 'react-native-keychain'
+import { AmplifyProvider } from 'aws-amplify-react-hooks'
+//import { AmplifyProvider } from '../lib'
 import AppNavigator from './AppNavigator'
 import awsconfig from '../aws-exports'
+
+const client = {
+  Auth,
+  API,
+  graphqlOperation
+}
+
+AmplifyProvider(client)
 
 const MEMORY_KEY_PREFIX = '@MyStorage:'
 let dataMemory = {}
@@ -40,11 +52,15 @@ Amplify.configure({
   storage: MyStorage
 })
 
-const App = () => (
-  <>
-    <StatusBar barStyle="dark-content" />
-    <AppNavigator />
-  </>
-)
+const App = () => {
+  return (
+    <>
+      <AmplifyProvider client={client}>
+        <StatusBar barStyle="dark-content" />
+        <AppNavigator />
+      </AmplifyProvider>
+    </>
+  )
+}
 
 export default App
