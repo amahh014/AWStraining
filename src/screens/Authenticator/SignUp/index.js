@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Auth } from 'aws-amplify'
-import * as Keychain from 'react-native-keychain'  
+import * as Keychain from 'react-native-keychain'
 import t from 'tcomb-form-native'
 import { AppContainer, Space, Button, TextError } from '../../../components'
 import { structSignUp, options } from '../Form'
@@ -29,7 +29,7 @@ const SignUp = ({ navigation }) => {
         setLoading(true)
         setError('')
         try {
-          const user = await Auth.signUp(email, password) 
+          const user = await Auth.signUp(email, password)
           await Keychain.setInternetCredentials('auth', email, password)
           user && onScreen('CONFIRM_SIGN_UP', navigation, { email, password })()
           setLoading(false)

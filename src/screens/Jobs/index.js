@@ -1,4 +1,3 @@
-  
 import { createStackNavigator } from 'react-navigation-stack'
 import { JobsMain } from './JobsMain'
 import { JobDetail } from './JobDetail'

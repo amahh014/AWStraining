@@ -7,7 +7,7 @@ import { goHome } from '../../constants'
 const User = ({ navigation }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  
+
   useEffect(() => {
     const checkUser = async () => {
       await Auth.currentAuthenticatedUser()
@@ -27,7 +27,7 @@ const User = ({ navigation }) => {
   }
 
   return (
-    <AppContainer message={error} loading={loading}> 
+    <AppContainer message={error} loading={loading}>
       <Button title="Sign Out" onPress={_onPress} />
     </AppContainer>
   )
