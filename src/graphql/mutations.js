@@ -1,8 +1,11 @@
 // @flow
 // this is an auto generated file. This will be overwritten
 
-export const createJob = `mutation CreateJob($input: CreateJobInput!) {
-  createJob(input: $input) {
+export const createJob = `mutation CreateJob(
+  $input: CreateJobInput!
+  $condition: ModelJobConditionInput
+) {
+  createJob(input: $input, condition: $condition) {
     id
     position
     rate
@@ -11,8 +14,11 @@ export const createJob = `mutation CreateJob($input: CreateJobInput!) {
   }
 }
 `;
-export const updateJob = `mutation UpdateJob($input: UpdateJobInput!) {
-  updateJob(input: $input) {
+export const updateJob = `mutation UpdateJob(
+  $input: UpdateJobInput!
+  $condition: ModelJobConditionInput
+) {
+  updateJob(input: $input, condition: $condition) {
     id
     position
     rate
@@ -21,8 +27,11 @@ export const updateJob = `mutation UpdateJob($input: UpdateJobInput!) {
   }
 }
 `;
-export const deleteJob = `mutation DeleteJob($input: DeleteJobInput!) {
-  deleteJob(input: $input) {
+export const deleteJob = `mutation DeleteJob(
+  $input: DeleteJobInput!
+  $condition: ModelJobConditionInput
+) {
+  deleteJob(input: $input, condition: $condition) {
     id
     position
     rate

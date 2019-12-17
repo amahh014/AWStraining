@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"awstrain32c4a9d4": {
+		"awstrain1611e24d": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
@@ -16,7 +16,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authawstrain32c4a9d4"
+							"userPoolId": "authawstrain1611e24d"
 						}
 					}
 				}
